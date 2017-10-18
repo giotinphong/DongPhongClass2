@@ -3,16 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.swings.dongphongclass2.MainActivity"
     tools:showIn="@layout/activity_main">
-
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="17dp"
+       android:layout_marginLeft="10dp"
+       android:text="Học sinh tích cực"/>
+<android.support.v7.widget.RecyclerView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/acti_main_goodstudent_list"></android.support.v7.widget.RecyclerView>
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="17dp"
+       android:layout_marginLeft="10dp"
+       android:text="Danh sách học sinh"/>
    <android.support.v7.widget.RecyclerView
        android:id="@+id/acti_main_rv_student_list"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       >
+       android:layout_height="wrap_content">
 
    </android.support.v7.widget.RecyclerView>
 

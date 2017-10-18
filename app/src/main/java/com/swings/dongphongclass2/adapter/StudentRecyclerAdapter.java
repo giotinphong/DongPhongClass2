@@ -6,18 +6,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 
 import com.bumptech.glide.Glide;
-import com.swings.dongphongclass2.AddNewStudentActivity;
-import com.swings.dongphongclass2.EditStudentActivity;
+import com.swings.dongphongclass2.StudentControllerActivity;
 import com.swings.dongphongclass2.R;
 import com.swings.dongphongclass2.data.FirebaseDataHelper;
 import com.swings.dongphongclass2.data.Student;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by sonnguyen on 8/15/17.
@@ -56,7 +53,7 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentHolder> 
         holder.cardMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(context, EditStudentActivity.class);
+                Intent in = new Intent(context, StudentControllerActivity.class);
                 in.putExtra("id",student.getId());
                 context.startActivity(in);
             }
@@ -66,6 +63,15 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentHolder> 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 student.setFee(isChecked);
 
+                helper.updateStudent(student);
+            }
+        });
+        holder.btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                student.setNumberOfClass(student.getNumberOfClass()+1);
+                if((student.getNumberOfClass()*1.0 / 8 > student.getNumofFee()) )
+                    student.setFee(false);
                 helper.updateStudent(student);
             }
         });

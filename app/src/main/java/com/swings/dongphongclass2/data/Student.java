@@ -12,6 +12,8 @@ public class Student {
     private long beginday,bithday;
     private String avatarLink;
     private boolean fee;
+    private double amount;
+    private int numofFee = 0;
 
     public Student(String name, String phonenum, long beginday) {
         this.name = name;
@@ -19,6 +21,7 @@ public class Student {
         this.beginday = beginday;
         fee = false;
         numberOfClass = 0;
+
     }
 
     public Student() {
@@ -87,5 +90,21 @@ public class Student {
 
     public void setFee(boolean fee) {
         this.fee = fee;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public int getNumofFee() {
+        return numofFee;
+    }
+
+    public void setNumofFee(int numofFee) {
+        this.numofFee = numofFee;
     }
 }

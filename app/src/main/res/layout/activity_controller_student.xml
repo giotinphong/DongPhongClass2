@@ -7,7 +7,7 @@
     android:padding="5dp"
 
     android:layout_margin="5dp"
-    tools:context="com.swings.dongphongclass2.AddNewStudentActivity">
+    tools:context="com.swings.dongphongclass2.StudentControllerActivity">
     <TableRow android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
@@ -105,9 +105,23 @@
         </LinearLayout>
 
     </TableRow>
+
     <TableRow>
-        <TextView android:text="Học phí : "/>
-        <CheckBox android:id="@+id/acti_add_new_student_cb_fee"/>
+    <TextView android:text="Học phí : "/>
+
+    <EditText
+        android:id="@+id/acti_add_new_student_ed_amount"
+        android:inputType="number"
+        android:text="0" />
+
+    <CheckBox android:id="@+id/acti_add_new_student_cb_fee"/>
+</TableRow>
+    <TableRow>
+        <TextView android:text="Số tháng đã đóng : "/>
+        <EditText
+            android:id="@+id/acti_add_new_student_ed_numoffe"
+            android:inputType="number"
+            android:text="0" />
     </TableRow>
     <Button
         android:text="Hoàn tất"

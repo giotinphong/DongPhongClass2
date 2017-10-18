@@ -1,9 +1,6 @@
 package com.swings.dongphongclass2;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,12 +20,10 @@ import com.swings.dongphongclass2.data.Student;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.ExecutionException;
 
-public class AddNewStudentActivity extends AppCompatActivity {
-    private EditText edName,edBithday,edBeginDay,edNumOfClasses,edPhoneNum;
+public class StudentControllerActivity extends AppCompatActivity {
+    private EditText edName,edBithday,edBeginDay,edNumOfClasses,edPhoneNum,edAmount,edNumOfFee;
     private CheckBox cbFee;
     private Button btnPlus,btnMinus,btnGalery,btnSubmit;
     private ImageButton btnCapture;
@@ -36,17 +31,20 @@ public class AddNewStudentActivity extends AppCompatActivity {
     private Student newStudent;
     private SimpleDateFormat dft;
     private FirebaseDataHelper helper;
+    private boolean isEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_new_student);
+        setContentView(R.layout.activity_controller_student);
 
         edName = (EditText)findViewById(R.id.acti_add_new_student_ed_name);
         edBithday = (EditText)findViewById(R.id.acti_add_new_student_ed_bithday);
         edBeginDay = (EditText)findViewById(R.id.acti_add_new_student_ed_beginday);
         edNumOfClasses = (EditText)findViewById(R.id.acti_add_new_student_ed_number_of_classes);
         edPhoneNum = (EditText)findViewById(R.id.acti_add_new_student_ed_phonenum);
+        edAmount = (EditText)findViewById(R.id.acti_add_new_student_ed_amount);
+        edNumOfFee = (EditText)findViewById(R.id.acti_add_new_student_ed_numoffe);
         cbFee = (CheckBox)findViewById(R.id.acti_add_new_student_cb_fee);
         btnPlus = (Button)findViewById(R.id.acti_add_new_student_btn_plus);
         btnMinus = (Button)findViewById(R.id.acti_add_new_student_btn_minus);
@@ -55,9 +53,38 @@ public class AddNewStudentActivity extends AppCompatActivity {
         btnSubmit = (Button)findViewById(R.id.acti_add_new_student_btn_submit);
 
 
-         helper = FirebaseDataHelper.getInstance();
+        helper = FirebaseDataHelper.getInstance();
+        try{
+            String id = getIntent().getExtras().getString("id");
+            helper.getmRef().child("student").child(id).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    newStudent  = dataSnapshot.getValue(Student.class);
+                    newStudent.setId(dataSnapshot.getKey());
+                    edName.setText(newStudent.getName());
+                    edBithday.setText(helper.convertLongDateToString(newStudent.getBithday()));
+                    edBeginDay.setText(helper.convertLongDateToString(newStudent.getBeginday()));
+                    edNumOfClasses.setText(newStudent.getNumberOfClass() + "");
+                    edPhoneNum.setText(newStudent.getPhonenum());
+                    edAmount.setText(newStudent.getAmount()+"");
+                    edNumOfFee.setText(newStudent.getNumofFee()+"");
+                    cbFee.setChecked(newStudent.isFee());
 
-        newStudent = new Student();
+                    isEdit = true;
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+        catch (Exception e){
+            newStudent = new Student();
+            isEdit = false;
+        }
+
 
         cal= Calendar.getInstance();
 
@@ -71,7 +98,7 @@ public class AddNewStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    DatePickerDialog datePickerDialog = new DatePickerDialog(AddNewStudentActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(StudentControllerActivity.this, new DatePickerDialog.OnDateSetListener() {
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                             Calendar newDate = Calendar.getInstance();
                             newDate.set(year, monthOfYear+1, dayOfMonth);
@@ -90,7 +117,7 @@ public class AddNewStudentActivity extends AppCompatActivity {
         edBithday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(AddNewStudentActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(StudentControllerActivity.this, new DatePickerDialog.OnDateSetListener() {
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         Calendar newDate = Calendar.getInstance();
                         newDate.set(year, monthOfYear+1, dayOfMonth);
@@ -166,11 +193,21 @@ public class AddNewStudentActivity extends AppCompatActivity {
                     newStudent.setName(name);
                     newStudent.setPhonenum(phone);
                     newStudent.setNumberOfClass(numOfClasses);
+                    int numoffee = Integer.parseInt(edNumOfFee.getText().toString());
+                    newStudent.setNumofFee(numoffee);
+                    double amount = Double.parseDouble(edAmount.getText().toString());
+                    if(amount!=0&&amount<1000)
+                        amount = amount*1000;
+                    newStudent.setAmount(amount);
+                    if(isEdit){
+                        helper.updateStudent(newStudent);
+                    }
+                    else
                     helper.addStudent(newStudent);
                     finish();
                 }
                 catch (Exception e){
-                    AlertDialog alertDialog = new AlertDialog.Builder(AddNewStudentActivity.this)
+                    AlertDialog alertDialog = new AlertDialog.Builder(StudentControllerActivity.this)
                             .setMessage("Nhập dữ liệu thiếu/sai")
                             .show();
                 }

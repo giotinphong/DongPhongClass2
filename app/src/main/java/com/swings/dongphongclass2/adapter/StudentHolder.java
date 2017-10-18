@@ -3,6 +3,7 @@ package com.swings.dongphongclass2.adapter;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class StudentHolder extends RecyclerView.ViewHolder {
      TextView txtName,txtBeginDay,txtNumOfClasses;
      CheckBox cbFee;
     CardView cardMain;
+    Button btnPlus;
     public StudentHolder(View itemView) {
         super(itemView);
         imgAvatar = (ImageView)itemView.findViewById(R.id.item_card_student_img_avatar);
@@ -26,6 +28,7 @@ public class StudentHolder extends RecyclerView.ViewHolder {
         txtNumOfClasses = (TextView)itemView.findViewById(R.id.item_card_student_txt_number_of_class);
         cbFee = (CheckBox)itemView.findViewById(R.id.item_card_student_checkbox_fee);
         cardMain = (CardView)itemView.findViewById(R.id.item_card_student_cardmain);
+        btnPlus = (Button)itemView.findViewById(R.id.item_card_student_btnplus);
     }
 
 }

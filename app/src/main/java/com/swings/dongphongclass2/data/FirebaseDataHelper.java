@@ -95,6 +95,7 @@ public class FirebaseDataHelper {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 student[0] = dataSnapshot.getValue(Student.class);
+                student[0].setId(dataSnapshot.getKey());
             }
 
             @Override
@@ -128,5 +129,62 @@ public class FirebaseDataHelper {
         Date date = new Date();
         date.setTime(time);
         return ""+date.getDate()+"/"+(date.getMonth()+1)+"/"+(date.getYear()+1900);
+    }
+
+    //count
+    public int countStudent(){
+        final int[] dem = {0};
+        mRef.child(STUDENT).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot child : dataSnapshot.getChildren())
+                    dem[0]++;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return dem[0];
+    }
+    //count amount
+    public double sumOfAmount(){
+        final double[] amount = {0};
+        mRef.child(STUDENT).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot child : dataSnapshot.getChildren()){
+                    Student st = child.getValue(Student.class);
+                    amount[0] += st.getAmount();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return amount[0];
+    }
+    //count amount received
+    public double sumOfAmountReceived(){
+        final double[] amount = {0};
+        mRef.child(STUDENT).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot child : dataSnapshot.getChildren()){
+                    Student st = child.getValue(Student.class);
+                    if(st.isFee())
+                    amount[0] += st.getAmount();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return amount[0];
     }
 }
