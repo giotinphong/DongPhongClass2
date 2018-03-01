@@ -1,5 +1,7 @@
 package com.swings.dongphongclass2.data;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,17 +19,31 @@ import java.util.Date;
 
 public class FirebaseDataHelper {
     private static String STUDENT =  "student";
+    private static String GROUP =  "group";
+
     DatabaseReference mRef;
+
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private String Uid = user.getUid();
     private static final FirebaseDataHelper ourInstance = new FirebaseDataHelper();
 
     public static FirebaseDataHelper getInstance() {
+
         return ourInstance;
     }
 
     private FirebaseDataHelper() {
-        mRef = FirebaseDatabase.getInstance().getReference();
+        mRef = FirebaseDatabase.getInstance().getReference().child(Uid);
     }
 
+    public void setUid(String uid) {
+        Uid = uid;
+    }
+
+    public String getUid() {
+        return Uid;
+    }
 
     //get All student
     public ArrayList<Student> getAllStudent(){
@@ -186,5 +202,47 @@ public class FirebaseDataHelper {
             }
         });
         return amount[0];
+    }
+    /************************* GROUP *************************/
+    //add group
+    public String addNewGroup(Group group){
+        String key = mRef.child(GROUP).push().getKey();
+        mRef.child(GROUP).child(key).setValue(group.getGroupName());
+        for(String studentid : group.getGroupMem()){
+            String keystudent = mRef.child(GROUP).child(key).push().getKey();
+            mRef.child(GROUP).child(key).child(keystudent).setValue(studentid);
+        }
+        return key;
+    }
+    //add mem to group
+    public String addMemToGroup(String stID, Group gr){
+        String keyst = mRef.child(GROUP).child(gr.getId()).push().getKey();
+        mRef.child(GROUP).child(gr.getId()).child(keyst).setValue(stID);
+        return keyst;
+    }
+    //edit mem of group
+    public void editMemOfGroup(String grID, String stID){}
+    public ArrayList<Group> getAllGroup(){
+        final ArrayList<Group> result = new ArrayList<>();
+        mRef.child(GROUP).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot child : dataSnapshot.getChildren()){
+                    Group gchild = child.getValue(Group.class);
+                    ArrayList<String> studentIds = new ArrayList<String>();
+                    for(DataSnapshot studentchild : child.getChildren()){
+                        String studentid = studentchild.getValue(String.class);
+                        studentIds.add(studentid);
+                    }
+                    result.add(gchild);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return result;
     }
 }

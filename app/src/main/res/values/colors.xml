@@ -3,4 +3,9 @@
     <color name="colorPrimary">#27a401</color>
     <color name="colorPrimaryDark">#27a401</color>
     <color name="colorAccent">#5721df</color>
+    <color name="background_color">#ffffff</color>
+    <color name="border_color">#414141</color>
+    <color name="text_background">#89000000</color>
+    <color name="fee">#46b33c</color>
+    <color name="notfee">#f53d3d</color>
 </resources>

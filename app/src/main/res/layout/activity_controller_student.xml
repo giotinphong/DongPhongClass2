@@ -1,130 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-
-    android:layout_margin="5dp"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
     tools:context="com.swings.dongphongclass2.StudentControllerActivity">
-    <TableRow android:layout_width="wrap_content"
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:text="Tên:"
-            android:layout_width="wrap_content" />
-        <EditText
-            android:maxLines="1"
-            android:layout_span="2"
-            android:id="@+id/acti_add_new_student_ed_name"/>
-    </TableRow>
-    <TableRow>
-        <TextView android:text="Ngày sinh :"/>
-
-        <EditText
-            android:layout_span="2"
-            android:id="@+id/acti_add_new_student_ed_bithday"
-            android:editable="false" />
-    </TableRow>
-    <TableRow>
-        <TextView android:text="Số điện thoại : "/>
-
-        <EditText
-            android:id="@+id/acti_add_new_student_ed_phonenum"
-            android:layout_span="2"
-            android:inputType="phone" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_gravity="center|left"
-            android:text="Hình đại diện :" />
-
-        <LinearLayout android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/acti_add_new_student_ibtn_capture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_camera" />
-
-            <Button
-                android:id="@+id/acti_add_new_student_btn_galery"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thư viện ảnh" />
-        </LinearLayout>
-
-    </TableRow>
-
-    <TableRow>
-        <TextView android:text="Ngày nhập học : "/>
-
-        <EditText
-            android:id="@+id/acti_add_new_student_ed_beginday"
-            android:editable="false" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_gravity="center|left"
-            android:text="Số buổi học : " />
-
 
         <LinearLayout
-
             android:layout_width="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <EditText
-                android:text="0"
-                android:id="@+id/acti_add_new_student_ed_number_of_classes"
-                android:maxLength="2"
-                android:maxLines="1"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:id="@+id/acti_add_new_student_ed_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:hint="  Tên học sinh" />
+
+            <EditText
+                android:id="@+id/acti_add_new_student_ed_bithday"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_span="2"
+                android:background="@drawable/border"
+                android:drawableStart="@drawable/ic_cake_black_24dp"
+                android:editable="false"
+                android:hint="  Ngày sinh" />
+
+            <EditText
+                android:id="@+id/acti_add_new_student_ed_phonenum"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_span="2"
+                android:background="@drawable/border"
+                android:drawableStart="@drawable/ic_phone_android_black_24dp"
+                android:hint="  Số điện thoại"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/acti_add_new_student_ed_beginday"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_span="2"
+                android:background="@drawable/border"
+                android:drawableStart="@drawable/ic_today_black_24dp"
+                android:editable="false"
+                android:hint=" Ngày nhập học  " />
+
+
+            <EditText
+                android:id="@+id/acti_add_new_student_ed_avatarLink"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_span="2"
+                android:background="@drawable/border"
+                android:drawableStart="@drawable/ic_linked_camera_black_24dp"
+                android:hint=" Link ảnh  " />
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border">
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_gravity="center|left"
+                        android:text=" Số buổi học : " />
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/acti_add_new_student_ed_number_of_classes"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:maxLines="1"
+                            android:text="0" />
+
+                        <Button
+                            android:id="@+id/acti_add_new_student_btn_plus"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="+" />
+
+
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border">
+
+                    <TextView android:text=" Học phí : " />
+
+                    <EditText
+                        android:id="@+id/acti_add_new_student_ed_amount"
+                        android:inputType="number"
+                        android:text="0" />
+
+                    <CheckBox android:id="@+id/acti_add_new_student_cb_fee" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/border">
+
+                    <TextView android:text=" Số tháng đã đóng : " />
+
+                    <EditText
+                        android:id="@+id/acti_add_new_student_ed_numoffe"
+                        android:inputType="number"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/acti_add_new_student_numOfAmountFeed_btn_plus"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="+" />
+                </TableRow>
+            </TableLayout>
 
             <Button
-                android:id="@+id/acti_add_new_student_btn_plus"
-                android:layout_width="wrap_content"
+
+                android:id="@+id/acti_add_new_student_btn_submit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+" />
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:text="Hoàn tất" />
 
             <Button
-                android:id="@+id/acti_add_new_student_btn_minus"
-                android:layout_width="wrap_content"
+
+                android:id="@+id/acti_add_new_student_btn_out"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-" />
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:text="đã nghỉ" />
         </LinearLayout>
+    </ScrollView>
 
-    </TableRow>
-
-    <TableRow>
-    <TextView android:text="Học phí : "/>
-
-    <EditText
-        android:id="@+id/acti_add_new_student_ed_amount"
-        android:inputType="number"
-        android:text="0" />
-
-    <CheckBox android:id="@+id/acti_add_new_student_cb_fee"/>
-</TableRow>
-    <TableRow>
-        <TextView android:text="Số tháng đã đóng : "/>
-        <EditText
-            android:id="@+id/acti_add_new_student_ed_numoffe"
-            android:inputType="number"
-            android:text="0" />
-    </TableRow>
-    <Button
-        android:text="Hoàn tất"
-        android:id="@+id/acti_add_new_student_btn_submit"
-        />
-</TableLayout>
+</LinearLayout>

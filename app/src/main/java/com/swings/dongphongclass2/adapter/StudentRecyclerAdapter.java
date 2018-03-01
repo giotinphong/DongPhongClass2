@@ -40,16 +40,18 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentHolder> 
     public void onBindViewHolder(StudentHolder holder, int position) {
         final Student student = studentArrayList.get(position);
         holder.txtName.setText(student.getName());
-        holder.txtBeginDay.setText(helper.convertLongDateToString(student.getBeginday()));
-        holder.txtNumOfClasses.setText(student.getNumberOfClass()+"");
-        holder.cbFee.setChecked(student.isFee());
-        if(holder.cbFee.isChecked()){
-            holder.cbFee.setEnabled(false);
-        }
+//        holder.txtBeginDay.setText(helper.convertLongDateToString(student.getBeginday()));
+        holder.txtNumOfClasses.setText(student.getNumberOfClass()+""+" Buổi");
+//        holder.cbFee.setChecked(student.isFee());
+//        if(holder.cbFee.isChecked()){
+//            holder.cbFee.setEnabled(false);
+//        }
         Glide.with(context)
                 .load(student.getAvatarLink())
                 .placeholder(R.drawable.student_icon)
                 .into(holder.imgAvatar);
+        holder.cardMain.setCardBackgroundColor(
+                student.isFee()? holder.cardMain.getResources().getColor(R.color.fee) : holder.cardMain.getResources().getColor(R.color.notfee));
         holder.cardMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,14 +60,14 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentHolder> 
                 context.startActivity(in);
             }
         });
-        holder.cbFee.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                student.setFee(isChecked);
-
-                helper.updateStudent(student);
-            }
-        });
+//        holder.cbFee.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                student.setFee(isChecked);
+//
+//                helper.updateStudent(student);
+//            }
+//        });
         holder.btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

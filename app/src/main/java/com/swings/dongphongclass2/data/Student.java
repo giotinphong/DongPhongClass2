@@ -11,9 +11,10 @@ public class Student {
     private int numberOfClass;
     private long beginday,bithday;
     private String avatarLink;
-    private boolean fee;
+    private boolean fee,isStudent;//isStudent = true : dang hoc
     private double amount;
     private int numofFee = 0;
+
 
     public Student(String name, String phonenum, long beginday) {
         this.name = name;
@@ -21,11 +22,19 @@ public class Student {
         this.beginday = beginday;
         fee = false;
         numberOfClass = 0;
+        isStudent = true;
+    }
 
+    public boolean isStudent() {
+        return isStudent;
+    }
+
+    public void setStudent(boolean student) {
+        isStudent = student;
     }
 
     public Student() {
-
+        isStudent = true;
     }
 
     public String getId() {

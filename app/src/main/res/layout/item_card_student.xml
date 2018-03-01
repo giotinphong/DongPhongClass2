@@ -2,94 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:id="@+id/item_card_student_cardmain"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:elevation="10dp">
+        android:elevation="10dp"
+        android:padding="5dp"
+        app:cardCornerRadius="5dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <android.support.v7.widget.CardView
+            <ImageView
+                android:id="@+id/item_card_student_img_avatar1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:cardCornerRadius="50dp">
-
-                <ImageView
-                    android:id="@+id/item_card_student_img_avatar"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:scaleType="centerCrop"
-                    android:src="@android:drawable/ic_menu_myplaces" />
-            </android.support.v7.widget.CardView>
+                android:layout_alignEnd="@+id/item_card_student_txt_student_name"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_myplaces" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/item_card_student_txt_student_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Teen hojc sinh"
-                    android:textSize="25dp" />
+                    android:text="Name"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#ffffff" />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/item_card_student_txt_number_of_class"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/item_card_student_btnplus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:elevation="15dp"
+                    android:focusable="true"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ngày nhập học : " />
-
-                    <TextView
-                        android:id="@+id/item_card_student_txt_beginday"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Số buổi học : " />
-
-                    <TextView
-                        android:id="@+id/item_card_student_txt_number_of_class"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <CheckBox
-                        android:id="@+id/item_card_student_checkbox_fee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hp" />
-                    <Button
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/item_card_student_btnplus"
-                        android:focusable="true"
-                        android:text="+"/>
-                </LinearLayout>
+                    android:text="+" />
             </LinearLayout>
         </LinearLayout>
+
+
     </android.support.v7.widget.CardView>
 </LinearLayout>

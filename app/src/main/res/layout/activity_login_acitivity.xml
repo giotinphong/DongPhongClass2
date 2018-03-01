@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.swings.dongphongclass2.LoginAcitivity"
+    android:orientation="vertical">
+    <EditText
+        android:drawableStart="@drawable/ic_person_black_24dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="  Tên đăng nhập"
+        android:background="@drawable/border"
+        android:id="@+id/acti_login_ed_name"/>
+    <EditText
+        android:drawableStart="@drawable/ic_lock_black_24dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="  Mật khẩu"
+        android:inputType="textPassword"
+        android:background="@drawable/border"
+        android:id="@+id/acti_login_ed_pass"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/acti_login_btn_login"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="register"
+        android:id="@+id/acti_login_btn_register"/>
+</LinearLayout>

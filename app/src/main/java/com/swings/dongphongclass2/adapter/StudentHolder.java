@@ -22,11 +22,11 @@ public class StudentHolder extends RecyclerView.ViewHolder {
     Button btnPlus;
     public StudentHolder(View itemView) {
         super(itemView);
-        imgAvatar = (ImageView)itemView.findViewById(R.id.item_card_student_img_avatar);
+        imgAvatar = (ImageView)itemView.findViewById(R.id.item_card_student_img_avatar1);
         txtName = (TextView)itemView.findViewById(R.id.item_card_student_txt_student_name);
-        txtBeginDay = (TextView)itemView.findViewById(R.id.item_card_student_txt_beginday);
+        //txtBeginDay = (TextView)itemView.findViewById(R.id.item_card_student_txt_beginday);
         txtNumOfClasses = (TextView)itemView.findViewById(R.id.item_card_student_txt_number_of_class);
-        cbFee = (CheckBox)itemView.findViewById(R.id.item_card_student_checkbox_fee);
+       // cbFee = (CheckBox)itemView.findViewById(R.id.item_card_student_checkbox_fee);
         cardMain = (CardView)itemView.findViewById(R.id.item_card_student_cardmain);
         btnPlus = (Button)itemView.findViewById(R.id.item_card_student_btnplus);
     }

@@ -12,6 +12,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -23,21 +25,19 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class StudentControllerActivity extends AppCompatActivity {
-    private EditText edName,edBithday,edBeginDay,edNumOfClasses,edPhoneNum,edAmount,edNumOfFee;
+    private EditText edName,edBithday,edBeginDay,edNumOfClasses,edPhoneNum,edAmount,edNumOfFee,edAvatarLink;
     private CheckBox cbFee;
-    private Button btnPlus,btnMinus,btnGalery,btnSubmit;
-    private ImageButton btnCapture;
+    private Button btnPlus,btnMinus,btnSubmit;
     private Calendar cal;
     private Student newStudent;
     private SimpleDateFormat dft;
     private FirebaseDataHelper helper;
     private boolean isEdit;
-
+    private Button btnGetOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controller_student);
-
         edName = (EditText)findViewById(R.id.acti_add_new_student_ed_name);
         edBithday = (EditText)findViewById(R.id.acti_add_new_student_ed_bithday);
         edBeginDay = (EditText)findViewById(R.id.acti_add_new_student_ed_beginday);
@@ -47,13 +47,12 @@ public class StudentControllerActivity extends AppCompatActivity {
         edNumOfFee = (EditText)findViewById(R.id.acti_add_new_student_ed_numoffe);
         cbFee = (CheckBox)findViewById(R.id.acti_add_new_student_cb_fee);
         btnPlus = (Button)findViewById(R.id.acti_add_new_student_btn_plus);
-        btnMinus = (Button)findViewById(R.id.acti_add_new_student_btn_minus);
-        btnGalery = (Button)findViewById(R.id.acti_add_new_student_btn_galery);
-        btnCapture = (ImageButton)findViewById(R.id.acti_add_new_student_ibtn_capture);
+        btnMinus = (Button)findViewById(R.id.acti_add_new_student_numOfAmountFeed_btn_plus);
         btnSubmit = (Button)findViewById(R.id.acti_add_new_student_btn_submit);
-
-
+        btnGetOut = (Button)findViewById(R.id.acti_add_new_student_btn_out);
+        edAvatarLink = (EditText)findViewById(R.id.acti_add_new_student_ed_avatarLink);
         helper = FirebaseDataHelper.getInstance();
+
         try{
             String id = getIntent().getExtras().getString("id");
             helper.getmRef().child("student").child(id).addValueEventListener(new ValueEventListener() {
@@ -71,6 +70,7 @@ public class StudentControllerActivity extends AppCompatActivity {
                     cbFee.setChecked(newStudent.isFee());
 
                     isEdit = true;
+                    btnGetOut.setVisibility(View.VISIBLE);
                 }
 
                 @Override
@@ -83,6 +83,8 @@ public class StudentControllerActivity extends AppCompatActivity {
         catch (Exception e){
             newStudent = new Student();
             isEdit = false;
+            btnGetOut.setVisibility(View.INVISIBLE);
+
         }
 
 
@@ -132,7 +134,9 @@ public class StudentControllerActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
+        if(!edAvatarLink.getText().toString().isEmpty()){
+            newStudent.setAvatarLink(edAvatarLink.getText().toString());
+        }
 
 
         btnPlus.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +215,14 @@ public class StudentControllerActivity extends AppCompatActivity {
                             .setMessage("Nhập dữ liệu thiếu/sai")
                             .show();
                 }
+            }
+        });
+        btnGetOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newStudent.setStudent(false);
+                helper.updateStudent(newStudent);
+                finish();
             }
         });
 

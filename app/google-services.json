@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "97774693477-nk3rido4nfv7vkrugjhn0iol0k5pndbc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.swings.dongphongclass2",
+            "certificate_hash": "208889d086455f70415c28db8513e0cdabf63687"
+          }
+        },
+        {
           "client_id": "97774693477-hlq51n6s5c4man3sc00jldfhn24bam8l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

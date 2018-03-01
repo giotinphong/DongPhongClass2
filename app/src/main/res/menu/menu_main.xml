@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.swings.dongphongclass2.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_static"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Thống kê"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="Đăng xuất"
         app:showAsAction="never" />
 </menu>
