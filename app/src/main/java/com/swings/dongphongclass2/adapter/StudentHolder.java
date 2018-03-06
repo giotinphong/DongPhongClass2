@@ -19,7 +19,8 @@ public class StudentHolder extends RecyclerView.ViewHolder {
      TextView txtName,txtBeginDay,txtNumOfClasses;
      CheckBox cbFee;
     CardView cardMain;
-    Button btnPlus;
+    Button btnPresent,btnAbsent;
+
     public StudentHolder(View itemView) {
         super(itemView);
         imgAvatar = (ImageView)itemView.findViewById(R.id.item_card_student_img_avatar1);
@@ -28,7 +29,10 @@ public class StudentHolder extends RecyclerView.ViewHolder {
         txtNumOfClasses = (TextView)itemView.findViewById(R.id.item_card_student_txt_number_of_class);
        // cbFee = (CheckBox)itemView.findViewById(R.id.item_card_student_checkbox_fee);
         cardMain = (CardView)itemView.findViewById(R.id.item_card_student_cardmain);
-        btnPlus = (Button)itemView.findViewById(R.id.item_card_student_btnplus);
+        btnPresent = (Button)itemView.findViewById(R.id.item_card_student_btnPresent);
+        btnAbsent = (Button)itemView.findViewById(R.id.item_card_student_btnAbsent);
+
+
     }
 
 }

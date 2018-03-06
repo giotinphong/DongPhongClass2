@@ -20,7 +20,7 @@ import java.util.Date;
 public class FirebaseDataHelper {
     private static String STUDENT =  "student";
     private static String GROUP =  "group";
-
+    private static String SCHEDULES = "schedules";
     DatabaseReference mRef;
 
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -202,6 +202,30 @@ public class FirebaseDataHelper {
             }
         });
         return amount[0];
+    }
+    //get schedule
+    public ArrayList<StudentSchedule> getListSchedules(String stID){
+        final ArrayList<StudentSchedule> studentScheduleArrayList = new ArrayList<>();
+        mRef.child(SCHEDULES).child(stID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot child : dataSnapshot.getChildren()){
+                    StudentSchedule studentSchedule = child.getValue(StudentSchedule.class);
+                    studentScheduleArrayList.add(studentSchedule);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return studentScheduleArrayList;
+    }
+    //add schedule
+    public void addSchedule (StudentSchedule sche, Student st){
+        DatabaseReference keyHandle =  mRef.child(SCHEDULES).child(st.getId()).push();
+        keyHandle.setValue(sche);
     }
     /************************* GROUP *************************/
     //add group

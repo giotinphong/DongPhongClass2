@@ -28,14 +28,13 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDataHelper firebaseDataHelper;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
-        final String Uid = user.getUid();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,13 +102,22 @@ public class MainActivity extends AppCompatActivity {
         }
         if(id == R.id.action_logout){
             mAuth.signOut();
-
+            if (mAuthListener != null) {
+                mAuth.removeAuthStateListener(mAuthListener);
+            }
+            startActivity(new Intent(MainActivity.this,LoginAcitivity.class));
             finish();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
     //get list hoc sinh hoc nhieu nhat
     public ArrayList<Student> getListGoodStudent(ArrayList<Student> studentArrayList){
         //lay ra 5 ban
@@ -131,5 +139,6 @@ public class MainActivity extends AppCompatActivity {
         for(int i = (result.length>5)?4:result.length-1; i>=0;i--)
             students.add(result[i]);
         return students;
+
     }
 }

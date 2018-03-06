@@ -103,7 +103,7 @@ public class StudentControllerActivity extends AppCompatActivity {
                     DatePickerDialog datePickerDialog = new DatePickerDialog(StudentControllerActivity.this, new DatePickerDialog.OnDateSetListener() {
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                             Calendar newDate = Calendar.getInstance();
-                            newDate.set(year, monthOfYear+1, dayOfMonth);
+                            newDate.set(year, monthOfYear, dayOfMonth);
                             edBeginDay.setText(dft.format(newDate.getTime()));
 
                             //set time to student
@@ -122,7 +122,7 @@ public class StudentControllerActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(StudentControllerActivity.this, new DatePickerDialog.OnDateSetListener() {
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         Calendar newDate = Calendar.getInstance();
-                        newDate.set(year, monthOfYear+1, dayOfMonth);
+                        newDate.set(year, monthOfYear, dayOfMonth);
                         edBithday.setText(dft.format(newDate.getTime()));
 
                         //set time to student
@@ -162,15 +162,15 @@ public class StudentControllerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int num = 0;
                 try{
-                    num = Integer.parseInt(edNumOfClasses.getText().toString());
+                    num = Integer.parseInt(edNumOfFee.getText().toString());
                 }
                 catch (Exception e){
                     num = 0;
                 }
                 finally {
                     if(num>0){
-                        num-=1;
-                        edNumOfClasses.setText(num+"");
+                        num+=1;
+                        edNumOfFee.setText(num+"");
                     }
                 }
 
@@ -198,11 +198,16 @@ public class StudentControllerActivity extends AppCompatActivity {
                     newStudent.setPhonenum(phone);
                     newStudent.setNumberOfClass(numOfClasses);
                     int numoffee = Integer.parseInt(edNumOfFee.getText().toString());
+                    if(numOfClasses/8>numoffee)
+                        newStudent.setFee(false);
+                    else
+                        newStudent.setFee(true);
                     newStudent.setNumofFee(numoffee);
                     double amount = Double.parseDouble(edAmount.getText().toString());
                     if(amount!=0&&amount<1000)
                         amount = amount*1000;
                     newStudent.setAmount(amount);
+
                     if(isEdit){
                         helper.updateStudent(newStudent);
                     }

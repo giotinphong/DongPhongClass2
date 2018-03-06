@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.swings.dongphongclass2.RegisterActivity"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:background="@color/colorPrimary">
+<LinearLayout
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:gravity="top|center">
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo_white"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:layout_marginBottom="7dp"
+        android:id="@+id/acti_regis_ed_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:drawableStart="@drawable/ic_person_black_24dp"
+        android:inputType="textEmailAddress"
+        android:hint="  Nhập email(vd : xxx@yyy.abc)" />
+
+    <EditText
+        android:layout_marginBottom="7dp"
+        android:id="@+id/acti_regis_ed_pass"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:drawableStart="@drawable/ic_lock_black_24dp"
+        android:hint="  Mật khẩu"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/acti_regis_ed_repass"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:drawableStart="@drawable/ic_lock_black_24dp"
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="textPassword" />
+    <TextView
+        android:textColor="#e11f1f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/acti_regis_txt_result"/>
+    <Button
+        android:id="@+id/acti_regis_btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:elevation="5dp"
+        android:textColor="@color/colorPrimary"
+        android:text="Đăng kí"/>
+</LinearLayout>
+
+</LinearLayout>

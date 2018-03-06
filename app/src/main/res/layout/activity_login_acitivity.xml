@@ -4,34 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:padding="10dp"
+    android:background="@color/colorPrimary"
     tools:context="com.swings.dongphongclass2.LoginAcitivity"
     android:orientation="vertical">
-    <EditText
-        android:drawableStart="@drawable/ic_person_black_24dp"
-        android:layout_marginTop="5dp"
+    <LinearLayout
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="  Tên đăng nhập"
-        android:background="@drawable/border"
-        android:id="@+id/acti_login_ed_name"/>
-    <EditText
-        android:drawableStart="@drawable/ic_lock_black_24dp"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="  Mật khẩu"
-        android:inputType="textPassword"
-        android:background="@drawable/border"
-        android:id="@+id/acti_login_ed_pass"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/acti_login_btn_login"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="register"
-        android:id="@+id/acti_login_btn_register"/>
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="top|center">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_white"
+            android:layout_marginBottom="30dp"/>
+
+        <EditText
+            android:id="@+id/acti_login_ed_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:drawableStart="@drawable/ic_person_black_24dp"
+            android:hint="  Email (vd : xxx@yyy.abc)" />
+        <EditText
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="  Mật khẩu"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:inputType="textPassword"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border"
+            android:id="@+id/acti_login_ed_pass"/>
+        <Button
+            android:textColor="@color/colorPrimary"
+            android:elevation="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="đăng nhập"
+            android:id="@+id/acti_login_btn_login"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            android:text="Chưa có tài khoảng ? Đăng kí ngay"
+            android:id="@+id/acti_login_btn_register"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quên mật khẩu"
+            android:textColor="#ffffff"
+            android:id="@+id/acti_login_btn_fogotpass"/>
+        </LinearLayout>
+
 </LinearLayout>
