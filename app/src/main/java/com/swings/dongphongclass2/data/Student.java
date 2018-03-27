@@ -9,6 +9,7 @@ import java.net.URL;
 public class Student {
     private String id,name,phonenum;
     private int numberOfClass;
+    private String IdClass;
     private long beginday,bithday;
     private String avatarLink;
     private boolean fee,isStudent;//isStudent = true : dang hoc
@@ -23,6 +24,14 @@ public class Student {
         fee = false;
         numberOfClass = 0;
         isStudent = true;
+    }
+
+    public String getIdClass() {
+        return IdClass;
+    }
+
+    public void setIdClass(String idClass) {
+        IdClass = idClass;
     }
 
     public boolean isStudent() {

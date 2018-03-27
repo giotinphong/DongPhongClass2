@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.swings.dongphongclass2.data.FirebaseDataHelper;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -41,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
             actionBar.hide();
         }
         //khoi tao bien
+        mAuth = FirebaseAuth.getInstance();
         edname = (EditText) findViewById(R.id.acti_regis_ed_name);
         edPass = (EditText) findViewById(R.id.acti_regis_ed_pass);
         edRepass = (EditText) findViewById(R.id.acti_regis_ed_repass);
@@ -71,6 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         progressBar.dismiss();
                                         txtResult.setText("Khởi tạo tài khoản thất bại");
                                     } else {
+                                        FirebaseUser user = mAuth.getCurrentUser();
                                         progressBar.setMessage("Thành công, đang đăng nhập");
                                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                         finish();

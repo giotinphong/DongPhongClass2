@@ -19,15 +19,18 @@
     <!--android:layout_width="wrap_content"-->
     <!--android:layout_height="wrap_content"-->
     <!--android:id="@+id/acti_main_goodstudent_list"></android.support.v7.widget.RecyclerView>-->
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textSize="17dp"
-       android:layout_marginLeft="10dp"
-       android:text="Danh sách học sinh"/>
+   <!--<TextView-->
+       <!--android:id="@+id/textView"-->
+       <!--android:layout_width="wrap_content"-->
+       <!--android:layout_height="wrap_content"-->
+       <!--android:layout_marginLeft="10dp"-->
+       <!--android:text="Danh sách học sinh"-->
+       <!--android:textSize="17dp" />-->
+
    <android.support.v7.widget.RecyclerView
+       android:layout_gravity="center"
        android:id="@+id/acti_main_rv_student_list"
-       android:layout_width="match_parent"
+       android:layout_width="wrap_content"
        android:layout_height="wrap_content">
 
    </android.support.v7.widget.RecyclerView>

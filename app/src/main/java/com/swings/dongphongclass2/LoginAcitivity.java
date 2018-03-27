@@ -62,7 +62,7 @@ private Button btnLogin;
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Intent in = new Intent(LoginAcitivity.this,MainActivity.class);
+                    Intent in = new Intent(LoginAcitivity.this,MainActivity2.class);
                     startActivity(in);
                 } else {
                     // User is signed out
@@ -100,8 +100,10 @@ private Button btnLogin;
                                             Toast.LENGTH_SHORT).show();
                                 }
                                 else{
-
-                                    Intent in = new Intent(LoginAcitivity.this,MainActivity.class);
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    String s = user.getUid();
+                                    //updateUI(user);
+                                    Intent in = new Intent(LoginAcitivity.this,MainActivity2.class);
                                     startActivity(in);
                                     finish();
                                 }

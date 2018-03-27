@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:layout_marginBottom="5dp"
-            android:text="Chưa có tài khoảng ? Đăng kí ngay"
+            android:text="Chưa có tài khoản ? Đăng kí ngay"
             android:id="@+id/acti_login_btn_register"/>
         <TextView
             android:layout_width="wrap_content"

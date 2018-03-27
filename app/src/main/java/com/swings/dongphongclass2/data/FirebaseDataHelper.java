@@ -24,8 +24,7 @@ public class FirebaseDataHelper {
     DatabaseReference mRef;
 
     private FirebaseAuth.AuthStateListener mAuthListener;
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private String Uid = user.getUid();
+    private String Uid ;//= user.getUid();
     private static final FirebaseDataHelper ourInstance = new FirebaseDataHelper();
 
     public static FirebaseDataHelper getInstance() {
@@ -34,6 +33,12 @@ public class FirebaseDataHelper {
     }
 
     private FirebaseDataHelper() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Uid = user.getUid();
+        mRef = FirebaseDatabase.getInstance().getReference().child(Uid);
+    }
+
+    public void setmRef(String Uid) {
         mRef = FirebaseDatabase.getInstance().getReference().child(Uid);
     }
 

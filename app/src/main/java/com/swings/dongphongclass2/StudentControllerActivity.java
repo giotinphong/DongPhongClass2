@@ -134,9 +134,7 @@ public class StudentControllerActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-        if(!edAvatarLink.getText().toString().isEmpty()){
-            newStudent.setAvatarLink(edAvatarLink.getText().toString());
-        }
+
 
 
         btnPlus.setOnClickListener(new View.OnClickListener() {
@@ -197,6 +195,9 @@ public class StudentControllerActivity extends AppCompatActivity {
                     newStudent.setName(name);
                     newStudent.setPhonenum(phone);
                     newStudent.setNumberOfClass(numOfClasses);
+                    if(!edAvatarLink.getText().toString().isEmpty()){
+                        newStudent.setAvatarLink(edAvatarLink.getText().toString());
+                    }
                     int numoffee = Integer.parseInt(edNumOfFee.getText().toString());
                     if(numOfClasses/8>numoffee)
                         newStudent.setFee(false);

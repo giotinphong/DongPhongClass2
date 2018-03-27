@@ -5,29 +5,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="com.swings.dongphongclass2.StaticActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginStart="10dp"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Thông tin chung"/>
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        app:cardCornerRadius="5dp">
+
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TableRow>
-                <TextView android:text="Tổng số học sinh : "/>
-                <TextView android:id="@+id/acti_static_txt_sumOfStudent"/>
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1,2">
+
+            <TableRow
+
+                android:layout_width="match_parent">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/day" />
+
+                <TextView
+                    android:layout_gravity="center|left"
+                    android:text="Tổng số học sinh" />
+
+                <TextView
+                    android:id="@+id/acti_static_txt_sumOfStudent"
+                    android:layout_gravity="center"
+                    android:text="" />
             </TableRow>
-            <TableRow>
-                <TextView android:text="Tổng tiền : "/>
-                <TextView android:id="@+id/acti_static_txt_sumOfAmount"/>
+
+            <TableRow
+
+                android:layout_width="match_parent">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/count" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_gravity="center|left"
+                    android:text="Tổng học phí" />
+
+                <TextView
+                    android:id="@+id/acti_static_txt_sumOfAmount"
+
+                    android:layout_gravity="center"
+                    android:text="5" />
             </TableRow>
-            <TableRow>
-                <TextView android:text="Tổng tiền thu được : "/>
-                <TextView android:id="@+id/acti_static_txt_sumOfAmountReceived"/>
+
+            <TableRow
+
+                android:layout_width="match_parent">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/fee" />
+
+                <TextView
+                    android:layout_gravity="center|left"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/acti_static_txt_sumOfAmountReceived"
+                    android:layout_gravity="center"
+                    android:text="" />
             </TableRow>
         </TableLayout>
     </android.support.v7.widget.CardView>
+
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

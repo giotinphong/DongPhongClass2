@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="50dp"
+                android:padding="3dp"
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/acti_studen_infor_img_avatar"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo_white"/>
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/acti_studen_infor_btn_edit"
+                android:background="#ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                app:cardCornerRadius="10dp"
+                android:elevation="5dp"
+                android:weightSum="1">
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:scaleType="centerInside"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/edit"
+                        android:layout_weight="0.01" />
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CHỈNH SỬA THÔNG TIN"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:layout_marginStart="10dp"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Thông tin"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="5dp"
+                android:elevation="5dp"
+                >
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_person" />
+
+                        <TextView
+                            android:id="@+id/acti_studen_infor_txt_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:text="name"
+                            android:textSize="25dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_phone_android_black_24dp" />
+
+                        <TextView
+                            android:id="@+id/acti_studen_infor_txt_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:text="sdt"
+                            android:textSize="20dp" />
+
+
+                    </TableRow>
+
+                    <LinearLayout android:elevation="5dp">
+
+                        <LinearLayout
+                            android:id="@+id/acti_studen_infor_btn_call"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:background="#0cb430"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CALL"
+                                android:textColor="#ffffff"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/acti_studen_infor_btn_sms"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:background="#decb03"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SMS"
+                                android:textColor="#ffffff"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </TableLayout>
+
+
+            </android.support.v7.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:layout_marginStart="10dp"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Học tập"/>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:elevation="5dp"
+                app:cardCornerRadius="5dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="0,1,2">
+
+                    <TableRow
+
+                        android:layout_width="match_parent">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/day" />
+
+                        <TextView
+                            android:layout_gravity="center|left"
+                            android:text="Ngày nhập học" />
+
+                        <TextView
+                            android:id="@+id/acti_studen_infor_txt_beginday"
+                            android:layout_gravity="center"
+                            android:text="05/03/2017" />
+                    </TableRow>
+
+                    <TableRow
+
+                        android:layout_width="match_parent">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/count" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_gravity="center|left"
+                            android:text="Số buổi học" />
+
+                        <TextView
+                            android:id="@+id/acti_studen_infor_txt_countclass"
+
+                            android:layout_gravity="center"
+                            android:text="5" />
+                    </TableRow>
+
+                    <TableRow
+
+                        android:layout_width="match_parent">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/fee" />
+
+                        <TextView
+                            android:layout_gravity="center|left"
+                            android:text="Số tháng đã đóng" />
+
+                        <TextView
+                            android:id="@+id/acti_studen_infor_txt_countfee"
+                            android:layout_gravity="center"
+                            android:text="1" />
+                    </TableRow>
+                </TableLayout>
+            </android.support.v7.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:layout_marginStart="10dp"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Điểm danh"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:elevation="5dp"
+                app:cardCornerRadius="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!--<CalendarView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"></CalendarView>-->
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Infor"/>-->
+                    <ListView
+                        android:id="@+id/acti_student_infor_list_schedule"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"></ListView>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
